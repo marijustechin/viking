@@ -3,9 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Viking assignment</title>
-    <script type="module" src="src/viking.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+    <script type="module" src="src/index.js"></script>
   </head>
-  <body></body>
+  <body>
+    <header class="header">
+      <div class="soldier">
+        <h2>Vikings</h2>
+        <img src="./img/viking.png" alt="Saxon army" />
+        <div id="vikings"></div>
+      </div>
+      <div class="action">
+        <img src="./img/crossed-swords.png" alt="Swords" class="swords" />
+        <button id="btn-recruit">Recruit army</button>
+        <button class="fight">Fight!</button>
+        <h3 class="info">Kazkas laimejo!</h3>
+        <button class="again">Play again</button>
+      </div>
+      <div class="soldier">
+        <h2>Saxons</h2>
+        <img src="./img/saxon.png" alt="Saxon army" />
+        <div id="saxons"></div>
+      </div>
+    </header>
+  </body>
 </html>
