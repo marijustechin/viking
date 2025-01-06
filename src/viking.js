@@ -67,15 +67,40 @@ export class War {
   }
 
   vikingAttack() {
-    const saxon = this.saxonArmy[randomNumber(0, this.saxonArmy.length)];
-    console.log('random saxon', saxon);
+    const randomSaxon = randomNumber(0, this.saxonArmy.length);
+
+    const saxon = this.saxonArmy[randomSaxon];
+
     const vikingStrength =
       this.vikingArmy[randomNumber(0, this.vikingArmy.length)].strength;
 
-    return saxon.receiveDamage(vikingStrength);
+    const message = saxon.receiveDamage(vikingStrength);
+
+    if (saxon.health < 0) {
+      let saxons = this.saxonArmy.filter((saxon) => saxon.health > 0);
+      this.saxonArmy = [...saxons];
+    }
+
+    return message;
   }
 
-  saxonAttack() {}
+  saxonAttack() {
+    const randomViking = randomNumber(0, this.vikingArmy.length);
 
-  showStatus() {}
+    const viking = this.vikingArmy[randomViking];
+    const saxonStrength =
+      this.saxonArmy[randomNumber(0, this.saxonArmy.length)].strength;
+
+    const message = viking.receiveDamage(saxonStrength);
+    if (viking.health < 0) {
+      let vikings = this.vikingArmy.filter((viking) => viking.health > 0);
+      this.vikingArmy = [...vikings];
+    }
+
+    return message;
+  }
+
+  showStatus() {
+    return `${this.vikingArmy.length} vikings vs ${this.saxonArmy.length} saxons`;
+  }
 }

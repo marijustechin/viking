@@ -19,3 +19,12 @@
   justify-items: center;
   gap: 1rem;
 }
+
+.hidden {
+  display: none;
+}
+
+.info,
+.status {
+  text-align: center;
+}
